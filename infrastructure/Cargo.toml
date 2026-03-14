@@ -1,0 +1,30 @@
+[package]
+name = "infrastructure"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+domain = { path = "../domain" }
+application = { path = "../application" }
+
+# Async
+tokio = { workspace = true }
+async-trait = { workspace = true }
+
+# Database
+sqlx = { workspace = true }
+
+# Redis
+redis = { workspace = true }
+
+# RabbitMQ
+lapin = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Utils
+uuid = { workspace = true }
+chrono = { workspace = true }
+tracing = { workspace = true }

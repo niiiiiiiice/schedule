@@ -1,0 +1,31 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+domain = { path = "../domain" }
+application = { path = "../application" }
+infrastructure = { path = "../infrastructure" }
+
+# Web
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+tokio = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Utils
+anyhow = { workspace = true }
+uuid = { workspace = true }
+
+# OpenAPI
+utoipa = { workspace = true }
+utoipa-scalar = { workspace = true }
+chrono = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+dotenvy = { workspace = true }
