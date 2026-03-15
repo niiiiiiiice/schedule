@@ -13,16 +13,26 @@ use application::scheduler::queries::get_resource_schedule::GetResourceScheduleH
 use application::scheduler::queries::list_resources::ListResourcesHandler;
 
 #[derive(Clone)]
-pub struct AppState {
-    pub create_resource: Arc<CreateResourceHandler>,
-    pub get_resource: Arc<GetResourceHandler>,
-    pub list_resources: Arc<ListResourcesHandler>,
-    pub get_resource_schedule: Arc<GetResourceScheduleHandler>,
+pub struct ResourceHandlers {
+    pub create: Arc<CreateResourceHandler>,
+    pub get: Arc<GetResourceHandler>,
+    pub list: Arc<ListResourcesHandler>,
+    pub get_schedule: Arc<GetResourceScheduleHandler>,
     pub get_available_slots: Arc<GetAvailableSlotsHandler>,
     pub create_schedule_rule: Arc<CreateScheduleRuleHandler>,
     pub update_schedule_rule: Arc<UpdateScheduleRuleHandler>,
     pub delete_schedule_rule: Arc<DeleteScheduleRuleHandler>,
-    pub create_booking: Arc<CreateBookingHandler>,
-    pub get_booking: Arc<GetBookingHandler>,
-    pub cancel_booking: Arc<CancelBookingHandler>,
+}
+
+#[derive(Clone)]
+pub struct BookingHandlers {
+    pub create: Arc<CreateBookingHandler>,
+    pub get: Arc<GetBookingHandler>,
+    pub cancel: Arc<CancelBookingHandler>,
+}
+
+#[derive(Clone)]
+pub struct AppState {
+    pub resources: ResourceHandlers,
+    pub bookings: BookingHandlers,
 }

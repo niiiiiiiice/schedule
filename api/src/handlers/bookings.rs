@@ -44,7 +44,8 @@ pub async fn create_booking(
     Json(body): Json<CreateBookingBody>,
 ) -> Result<(StatusCode, Json<BookingDto>), ApiError> {
     let dto = state
-        .create_booking
+        .bookings
+        .create
         .handle(CreateBookingCommand {
             resource_ids: body.resource_ids,
             start_at: body.start_at,
@@ -70,7 +71,8 @@ pub async fn get_booking(
     Path(booking_id): Path<Uuid>,
 ) -> Result<Json<BookingDto>, ApiError> {
     let dto = state
-        .get_booking
+        .bookings
+        .get
         .handle(GetBookingQuery { booking_id })
         .await?;
     Ok(Json(dto))
@@ -91,7 +93,8 @@ pub async fn cancel_booking(
     Path(booking_id): Path<Uuid>,
 ) -> Result<StatusCode, ApiError> {
     state
-        .cancel_booking
+        .bookings
+        .cancel
         .handle(CancelBookingCommand { booking_id })
         .await?;
     Ok(StatusCode::NO_CONTENT)
