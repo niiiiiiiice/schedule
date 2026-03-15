@@ -1413,7 +1413,6 @@ dependencies = [
  "domain",
  "lapin",
  "redis",
- "serde",
  "serde_json",
  "sqlx",
  "tokio",

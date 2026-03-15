@@ -21,7 +21,6 @@ redis = { workspace = true }
 lapin = { workspace = true }
 
 # Serialization
-serde = { workspace = true }
 serde_json = { workspace = true }
 
 # Utils

@@ -224,7 +224,7 @@ fn split_by_bookings(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use chrono::{NaiveDate, TimeZone, Utc};
+    use chrono::{NaiveDate, Utc};
     use domain::scheduler::booking::{Booking, BookingStatus};
     use uuid::Uuid;
 
